@@ -1,0 +1,8 @@
+DEBUG:root:Add: 5 + 10 = 15 
+DEBUG:root:Subtract: 5 - 10 = -5 
+DEBUG:root:Multiply: 5 * 10 = 50 
+DEBUG:root:Divide: 5 / 10 = 0.5 
+2025-11-13 19:16:13,238:DEBUG:Add: 5 + 10 = 15 
+2025-11-13 19:16:13,239:DEBUG:Subtract: 5 - 10 = -5 
+2025-11-13 19:16:13,239:DEBUG:Multiply: 5 * 10 = 50 
+2025-11-13 19:16:13,239:DEBUG:Divide: 5 / 10 = 0.5 

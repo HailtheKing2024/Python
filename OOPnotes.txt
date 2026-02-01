@@ -1,0 +1,257 @@
+#OOp coding
+classes:
+	atributtes
+	methods
+	
+
+define a classes
+
+class Employee
+
+class- blueprint to repeat, instantiate
+instance of a class - when you actually use a class to create.
+emp_1.last - ex of an instance variable 
+instance ex:
+
+emp_1 = Employee
+emp_2 = Employee
+
+instance variables
+
+def __init__(self): - construcor - must use it to initalize methods. convention is to use self, and then whatever you want to accept.
+	self.first
+	self.last
+	self.pay
+	self.email
+	
+to use these, fill parameters when calling class.
+EX:
+
+emp_1 = Employee('Corey','Schafer',50000)
+emp_1 is set to self, and adds the atributes to the rest
+
+To create a methods
+def fullname(self)# again, use self here
+	return self.first + self.last
+	
+print(emp_1.fullname())
+#uses atribute to grab full name
+
+#ALWAYS incldue self for methods and init functions, always takes 1 parameter.
+Can also be run using class name.
+Ex: Employee.fullname(emp_1)# parameter is the instance variable. 
+
+#Number 2
+Class variables
+variables shared among all instances of a class.
+Same for every instance.
+
+first thing in class
+ex
+
+class something
+	
+	something_else = 'This'
+	
+To acess it, use the class.varaible or the instance.
+Ex:
+
+emp_1.raise_amount
+or
+Employee.raise_amount
+
+to get all atributes of a functions
+
+print(Employee.__dict__)
+
+You can update a class variable outside of a code by calling the class.variable and it changes for every instance
+but, for just an instance, use instance.variable
+Ex:
+Employee.raise_amount = 1.05 #for all
+emp_1.raise_amount  = 1.06 # for just employee 1
+
+#Lesson 3 Class methods, regular methods, static methods difference.
+
+Regular methods: take instance as first argument
+Class methods: use the decorater @classmethod and below it, the function. Takes the class as first argument.
+Ex:
+@classmethod
+def from_string(cls, emp_str):
+	first, last, pay = emp_str.split('-')
+	return cls(first, last,pay) # calls the init function to create new instance
+	
+new_emp_1  =Employee.from_string(emp_str_1)
+
+Static methods: Use the decorator @staticmethod. doesnt rely on any instance or class to do it. Ex:
+
+@staticmethod 
+def is_workday(day):
+	if day.weekday() == 5 or if day.weekday() == 6:
+		return False
+	return True
+	
+print(Employee.is_workday(my_date)) # calls the staatic function
+
+#Lesson 4 Inheritance and subclasses
+
+How to inherit traits and create subclasses
+Inheritance is to inherit all the previous atributes of a class along with its variables, methods,
+create class, for parameter use the class name and it will inherit all atributes and methods of the previous class.
+to get help for class and subclases, run print(help(Developer((class name))
+
+class Developer(Employee)
+	pass
+
+everything is inherited here. But you can overide it. ex: chaniing a class variable . It only overides for a subclass.
+
+Class developer(Employee):
+	raise_amt = 1.10
+only overides in developer.
+if you want to add new atributes, you will need to copy and do the init function.Or
+
+dsef __init__(self,first,last,pay,prog_lang):
+	super().__init__(first,last,pay) # lets Employee class handle it.
+	self.prog_lang = prog_lang # and adds the atribute as well.
+	
+again
+
+class Manager(Employee):
+
+	def __init__(self,first,last,pay, employees=None)
+	super().__init__(first,last,pay)
+	if employees is None:
+		self.employees = []
+	else:
+		self.employees = employees
+	
+	def add_emp(self,emp)
+	if emp not in self.employees:
+		self.employees.append(emp)
+	def add_emp(self,emp)
+	if emp in self.employees:
+		self.employees.remove(emp)
+		
+		
+	def print_emps(self)
+		for employee in self.employees:
+		print('-->', emp.fullname())
+		
+Subclasses great for reusing code.
+
+isinstance()# tells if an object is an instance of a class. ex isinstance(mgr_1,Manager) # 1st is instance, second is class name.
+
+issubclass # is a subclass a class of something else. Ex: (Manager, employee) # subclass, parent class.
+
+Lesson 5: Special/magic methods
+
+__ is dunder
+__init__ is a special method!
+
+__repr__ - Special method called when we run repr on our function - used for debugging and logging
+__str__ -- readable representation of object - for users
+
+Ex:
+
+def __repr__(self):
+	return "Employee('{}','{}',{}".format(self.first,self.last,self.pay))# whenever you run print(emp_1) now, you will get what is in the string!
+	
+	
+def __str__(self):
+	return '{} - {}' .format(self.fullname(),self.email) # Now it overrides repr, because its used for user.
+	
+to access them explicitly, use print(repr(emp_1)) and print(str(emp_1)) can also be called by the atribute method.
+
+some dunder methods are used in plain sight, like to add and concantenate.
+
+You can change what these methods do to suit your classes.
+
+Ex:
+
+def __add__(self,other)
+	return self.pay + other.pay # returns combined salary. changes the method to now expect objects.
+	
+2nd EX: len() 
+
+method: print('test'.__len__()) # returns 4 because it expects a string.
+
+def __len__(self):
+	return len(self.fullname()) # now it applies to the instances as well.
+# if you see return NotImplemented, it falls back on other objects. If nothing is found, it runs an error.
+
+#6 - @property decorater 
+allows us to acess the getter and setter method
+Getter method - allows us to acess a method llike an antribute. Ex:
+@property
+def email(self)
+	return '{}.{} @email.com'.format(self.first,self.last) #works,, but inefficent.... untill you add property. 
+	
+Allows acess to the method like an atribute.
+
+Setter - allows us to change onee atriubute and use it to update the other. Ex:
+
+@fullname .setter
+def fullname(self,name):
+	first,last = name.split(' ') 
+	self.first = first
+	self.last = last
+	
+
+@fullname .deleter
+def fullname(self):
+	print('Delete name!')
+	self.first = None
+	self.last = None 
+	
+	
+del emp_1.fullname 
+
+# Extra - first class functions
+ A programing fucntion has first class functions if it treats them like first class citzens... basically if it supports every operation.
+ we can treat functions like any other object.
+ 
+ 
+ you can define a varaible using the function ex:
+ 
+ def square(x)
+	return x *x
+	
+f = square
+
+print(f(5))
+
+gets 25 because its running the function  
+can also be ran as an argument and accepted as a return... called higher order function.
+
+map function - takes array and function and returns new array outside
+
+def my_map(func,arg_list):
+	result = []
+	for i in arg_list:
+		result.appeed(func(i))
+	return result
+	
+squares  = my_map(cube,[1,2,3,4,5]) # make sure function is above this. But efficient, as a function can be an argument easily.
+
+def cube(x)
+	return x*x*x
+	
+def logger(msg):
+
+	def log_message():
+		print('Log',msg)
+		
+	return log_message # returns the function within the function
+	
+	ex:
+log_hi = logger('Hi')# it sees the function and returns it to the varriable
+log_hi()# now, if we run it as a function, it uses the log message function because it is the function now. This is a closure. Explained later.
+
+#Extra - Scope
+
+scope - local, enclosing,global,built-in
+
+local - varaibles defined in functions
+enclosing
+global - explicitly defined in a module
+built-in - built in to the code.
+
