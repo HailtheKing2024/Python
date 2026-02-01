@@ -1,4 +1,4 @@
-def student_info(*args, **kwargs):
+def student_info(*args,**kwargs):
     print(args)  # ('Math', 'Art', 'History')
     print(kwargs)  # {'name': 'John', 'age': 22}
 
