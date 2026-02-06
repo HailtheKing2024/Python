@@ -6,9 +6,4 @@ def printy(arg):
 
 class Classy:
     pass
-
-print(s)
-print(a)
-printy('Good Day Sir!')
-x = Classy()
-print(x)
+print(f'a is equal to {a}')
