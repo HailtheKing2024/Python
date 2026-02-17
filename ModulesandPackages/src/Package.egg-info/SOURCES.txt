@@ -1,0 +1,10 @@
+pyproject.toml
+src/Package/__init__.py
+src/Package/mod1.py
+src/Package/mod2.py
+src/Package/mod3.py
+src/Package/mod4.py
+src/Package.egg-info/PKG-INFO
+src/Package.egg-info/SOURCES.txt
+src/Package.egg-info/dependency_links.txt
+src/Package.egg-info/top_level.txt

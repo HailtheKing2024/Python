@@ -1,9 +1,7 @@
-s = 'Computers are simply machines'
-a=[100,300,500,700,900]
+import sys
+from pathlib import  Path
 
-def printy(arg):
-    print(f'arg={arg}')
-
-class Classy:
-    pass
-print(f'a is equal to {a}')
+folder = Path(__file__).parent/ "src"
+sys.path.insert(0,str(folder)) 
+from Package.mod1 import load_data
+load_data()
