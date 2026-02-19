@@ -14,7 +14,7 @@ setup(
     description="A easy and quick way to get help from realpythons latest articles onto your terminal",
     long_description=README,
     long_description_content_type="text/markdown",
-    url="https://github.com/realpython/reader",
+    url="https://github.com/HailtheKing2024/Python/tree/main/pythonreader",
     author="Abhinav B",
     author_email="bijishabhinav@gmail.com",
     license="MIT",
