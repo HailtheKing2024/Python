@@ -1,6 +1,6 @@
 import re
 
-text_to_search = '''
+text_to_search = """
 abcdefghijklmnopqrstuvwxyz
 ABCDEFGHIJKLMNOPQRSTUVWXYZ
 1234567890
@@ -26,11 +26,11 @@ cat
 mat
 pat
 bat
-'''
+"""
 
-sentence= 'Start a sentence and then bring it to an end'
+sentence = "Start a sentence and then bring it to an end"
 
-pattern = re.compile(r'Mr\.?\s[A-Z]\w*')
+pattern = re.compile(r"Mr\.?\s[A-Z]\w*")
 
 matches = pattern.finditer(text_to_search)
 for match in matches:
