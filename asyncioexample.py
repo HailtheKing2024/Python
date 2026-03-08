@@ -25,4 +25,4 @@ if __name__ == "__main__":
     start_time = time.time() # starts the timer
     asyncio.run(download_all_sites(sites)) # runs the download_all_sites function with the sites list as an argument
     duration = time.time() - start_time # calculates the duration of the download
-    print(f"\nDownloaded {len(sites)} in {duration} seconds") # prints the number of sites downloaded and the duration
+    print(f"\nDownloaded {len(sites)} in {duration} seconds") # prints the number of sites downloaded and the duration it took
