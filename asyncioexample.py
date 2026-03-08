@@ -13,7 +13,7 @@ async def download_all_sites(sites): #
         for url in sites:
             task = asyncio.create_task(download_site(session, url)) # this is the coroutine that will be run concurreently
             tasks.append(task) # appends the task to the tasks list
-        await asyncio.gather(*tasks, return_exceptions=True) # similar to join, aysincio will wait here untill all tasks are completed, and then 
+        await asyncio.gather(*tasks, return_exceptions=True) # similar to join, aysincio will wait here untill all tasks are completed
 
 
 
