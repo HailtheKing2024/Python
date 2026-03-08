@@ -9,4 +9,4 @@ user = input('Enter number to start countdown:')
 numbers = countdown(int(user))
 
 for i in numbers:
-    print(i)
+    print(i) # Prints numbers 
