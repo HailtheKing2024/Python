@@ -1,0 +1,23 @@
+<!--book.xml-->
+<?xml version="1.0" encoding="UTF-8" ?>
+<book>
+    <title>Python Basics</title>
+    <page_count>635</page_count>
+    <pub_date>2021-03-16</pub_date>
+    <authors>
+        <author>
+            <name>David Amos</name>
+        </author>
+        <author>
+            <name>Joanna Jablonski</name>
+        </author>
+        <author>
+            <name>Dan Bader</name>
+        </author>
+        <author>
+            <name>Fletcher Heisler</name>
+        </author>
+    </authors>
+    <isbn13>978-1775093329</isbn13>
+    <genre>Education</genre>
+</book>
