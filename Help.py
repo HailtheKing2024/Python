@@ -1,1 +1,2 @@
-help()
+def add(a,b):
+    
