@@ -7,5 +7,6 @@
       ".continue/**/*.yaml"
     ],
     "file:///c:/Users/krish/.vscode/extensions/continue.continue-1.2.17-win32-x64/config-yaml-schema.json": "file:///c%3A/Users/krish/.continue/config.yaml"
-  }
+  },
+  "python-envs.defaultEnvManager": "ms-python.python:system"
 }
